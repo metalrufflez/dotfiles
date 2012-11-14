@@ -121,7 +121,7 @@ au BufWinEnter ?* silent loadview
 au FocusLost ?* :wa
 
 " Custom file syntax
-au BufWritePre,BufRead .vundle setfiletype vim
+au BufWritePre,BufRead *vundle* setfiletype vim
 
 " Puppet highlighting
 au BufRead,BufNewFile *.pp set filetype=puppet

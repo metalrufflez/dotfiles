@@ -48,6 +48,7 @@ alias ctags="/usr/local/bin/ctags"
 alias md5sum="openssl dgst -md5"
 alias sprunge="sprungescpt | pbcopy"
 alias awskeys="cd /opt/git/private/aws/keys"
+alias vimrc="mvim ~/.vimrc"
 
 # t alias
 alias t='python /usr/local/bin/t/t.py --task-dir ~/.tasks --list work'
