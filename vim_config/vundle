@@ -1,0 +1,33 @@
+" Vundle config
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" Vundle config
+filetype plugin indent on
+
+" Bundles
+" github
+Bundle 'gmarik/vundle'
+Bundle 'msanders/snipmate.vim'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-commentary'
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'sjl/gundo.vim'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'majutsushi/tagbar'
+Bundle 'tpope/vim-markdown'
+
+" vim-puppet stuff
+Bundle 'rodjek/vim-puppet'
+Bundle 'godlygeek/tabular'
+
+" vimscripts
+Bundle 'python.vim'
+Bundle 'AutoTag'
+"Bundle 'AutoClose'
+
+"Colorschemes
+Bundle 'sjl/badwolf' 
