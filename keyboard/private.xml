@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<root>
+    <item>
+        <name>Tab to Option_L</name>
+        <appendix>(+ When you type Tab only, send Tab)</appendix>
+        <identifier>private.tab_to_opt_l</identifier>
+        <autogen>
+            --KeyOverlaidModifier--
+
+            KeyCode::TAB, KeyCode::OPTION_L, ModifierFlag::NONE,
+            KeyCode::TAB
+        </autogen>
+    </item>
+</root>
