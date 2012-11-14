@@ -1,0 +1,27 @@
+" Basic Config
+syn on
+set bg=dark
+set is ic hls scs aw ru si ai
+set sw=4 sts=4 ts=4 et
+set wildmenu wim=longest,list
+set nocompatible modelines=0
+set showmode showcmd ttyfast
+set laststatus=2
+set scrolloff=3
+
+" Color fix
+let &t_Co=256
+
+" Remaps
+cab W w
+cab Wq wq
+
+" Fix j/k
+nnoremap j gj
+nnoremap k gk
+
+" Easily clean search hilighting with \<space>
+nnoremap <leader><space> :noh<cr>
+
+" Easily set paste!
+nnoremap <leader>p :set paste!<cr>
