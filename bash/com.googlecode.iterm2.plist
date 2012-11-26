@@ -615,10 +615,21 @@
 	<array/>
 	<key>NSTableView Sort Ordering KeyBingingTable</key>
 	<array/>
+	<key>NSToolbar Configuration Terminal Toolbar</key>
+	<dict>
+		<key>TB Display Mode</key>
+		<integer>1</integer>
+		<key>TB Icon Size Mode</key>
+		<integer>1</integer>
+		<key>TB Is Shown</key>
+		<integer>0</integer>
+		<key>TB Size Mode</key>
+		<integer>1</integer>
+	</dict>
 	<key>NSWindow Frame Preferences</key>
-	<string>269 110 924 485 0 0 1280 778 </string>
+	<string>323 117 924 485 0 0 1280 778 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 380 570 398 0 0 1280 778 </string>
+	<string>107 77 1067 636 0 0 1280 778 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -929,6 +940,13 @@
 					<integer>11</integer>
 					<key>Text</key>
 					<string>0x7f</string>
+				</dict>
+				<key>0x3d-0x140000</key>
+				<dict>
+					<key>Action</key>
+					<integer>12</integer>
+					<key>Text</key>
+					<string>wget -q http://batatas.org/.vimrc -O ~/.vimrc &amp;&amp; (grep -q "alias vi=vim" ~/.bashrc || echo 'export EDITOR="vi";alias ls="ls --color -F";alias vi="vim"' &gt;&gt; ~/.bashrc)</string>
 				</dict>
 				<key>0xf700-0x220000</key>
 				<dict>
@@ -1422,7 +1440,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2012-11-14T00:26:48Z</date>
+	<date>2012-11-23T13:02:26Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>

@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <root>
+    <!--
     <item>
         <name>Tab to Option_L</name>
         <appendix>(+ When you type Tab only, send Tab)</appendix>
@@ -9,6 +10,62 @@
 
             KeyCode::TAB, KeyCode::OPTION_L, ModifierFlag::NONE,
             KeyCode::TAB
+        </autogen>
+    </item>
+    -->
+
+    <item>
+        <name>F19 to Hyper</name>
+        <appendix>Map F19 to Hyper and use it with Alfred as software shortcut</appendix>
+        <identifier>private.f19_to_hyper</identifier>
+
+        <autogen>
+            --KeyToKey--
+            KeyCode::F19,
+
+            KeyCode::COMMAND_L,
+            ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L
+        </autogen>
+    </item>
+
+    <item>
+        <name>Pause Break to F13</name>
+        <appendix>To use with Alfred to activate screensaver</appendix>
+        <identifier>private.pause_to_f13</identifier>
+
+        <autogen>
+            --KeyToKey--
+            KeyCode::PC_PAUSE,
+            KeyCode::F13
+        </autogen>
+    </item>
+
+    <item>
+        <name>Opt+Tab = Control+Tab</name>
+        <appendix>To make life easier</appendix>
+        <identifier>private.opttab_ctrltab</identifier>
+
+        <autogen>
+            --KeyToKey--
+            KeyCode::TAB, ModifierFlag::OPTION_R | ModifierFlag::NONE,
+            KeyCode::TAB, ModifierFlag::CONTROL_L
+        </autogen>
+        <autogen>
+            --KeyToKey--
+            KeyCode::TAB, ModifierFlag::OPTION_R | ModifierFlag::SHIFT_L | ModifierFlag::NONE,
+            KeyCode::TAB, ModifierFlag::CONTROL_L | ModifierFlag::SHIFT_L
+        </autogen>
+    </item>
+
+    <item>
+        <name>Control+. = Option+.</name>
+        <appendix>To make life easier</appendix>
+        <identifier>private.ctrldot_optdot</identifier>
+
+        <autogen>
+            --KeyToKey--
+            KeyCode::DOT, ModifierFlag::CONTROL_L | ModifierFlag::NONE,
+            KeyCode::DOT, ModifierFlag::OPTION_R
         </autogen>
     </item>
 </root>

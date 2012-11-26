@@ -55,6 +55,15 @@ nnoremap <leader>q :%s/\s\+$//<cr>:let @/=''<CR>
 " Easy switch wrap/nowrap
 nnoremap <leader>w :set wrap!<CR>
 
+" Runs bash
+nnoremap <leader>b :!bash<CR>
+
+" Easy open/close folds
+nnoremap <Space> za
+vnoremap <Space> za
+nnoremap <S-Space> zA
+vnoremap <S-Space> zA
+
 " Toggle visible whitespace
 nmap <leader>l :set list!<CR>
 set listchars=tab:▸\ ,eol:¬

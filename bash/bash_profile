@@ -46,17 +46,12 @@ alias ctags="/usr/local/bin/ctags"
 
 # Other Helper Aliases
 alias md5sum="openssl dgst -md5"
-alias sprunge="sprungescpt | pbcopy"
 alias awskeys="cd /opt/git/private/aws/keys"
 alias vimrc="mvim ~/.vimrc"
 
 # t alias
 alias t='python /usr/local/bin/t/t.py --task-dir ~/.tasks --list work'
 alias p='python /usr/local/bin/t/t.py --task-dir ~/.tasks --list personal'
-
-# Tree de Pobre
-alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
-alias treed="find . -type d -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 
 # SSH Aliases auto-complete
 complete -o default -W "$(grep -i "^host" $HOME/.ssh/config | cut -d" " -f2-)" scp sftp ssh
@@ -70,7 +65,14 @@ export LESS_TERMCAP_se=$'\E[m'           # end standout-mode
 export LESS_TERMCAP_us=$'\E[4;36m'       # begin underline
 export LESS_TERMCAP_ue=$'\E[m'           # end underline
 
-# Function to rename tab
-function tabtitle() { 
+# Function to rename tab on iTerm2
+function ttt() { 
     echo -ne "\033]0;$@\007" 
+}
+
+# Sprunge function, use it after a |
+function sprunge() {
+    lang=$1
+    url=$(curl --silent -F 'sprunge=<-' http://sprunge.us)
+    echo -n "${url# }?$lang" | pbcopy
 }
