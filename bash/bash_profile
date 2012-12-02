@@ -72,7 +72,7 @@ function ttt() {
 
 # Sprunge function, use it after a |
 function sprunge() {
-    lang=$1
+    lang=${1:+?$1}
     url=$(curl --silent -F 'sprunge=<-' http://sprunge.us)
-    echo -n "${url# }?$lang" | pbcopy
+    echo -n "${url# }$lang" | pbcopy
 }
