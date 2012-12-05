@@ -17,7 +17,8 @@ export CYELLOW="\[$(tput setaf 3)\]"
 export CRED="\[$(tput setaf 1)\]"
 export CRESET="\[$(tput sgr0)\]"
 
-export PS1="$CBLUE\u$CWHITE@$CGREEN\h$CWHITE|\$(count_tasks)$CWHITE:$CRED\w\n$CWHITE\\$ $CRESET"
+#export PS1="$CBLUE\u$CWHITE@$CGREEN\h$CWHITE|\$(count_tasks)$CWHITE:$CRED\w\n$CWHITE\\$ $CRESET"
+export PS1="$CBLUE\u$CWHITE@$CGREEN\h$CWHITE:$CRED\w\n$CWHITE\\$ $CRESET"
 
 # Keep History under control
 export HISTCONTROL=erasedups
