@@ -1,5 +1,5 @@
 # Sources
-source .ventures
+source ~/.ventures
 
 # Environment variables
 export BROWSER="less"

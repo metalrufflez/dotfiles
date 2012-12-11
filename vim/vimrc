@@ -37,8 +37,9 @@ cab Wq wq
 nnoremap j gj
 nnoremap k gk
 
-" Easily return to normal mode using jj
+" Easily return to normal mode using jj or kk
 inoremap jj <ESC>
+inoremap kk <ESC>
 
 " Easily clean search hilighting with \<space>
 nnoremap <leader><space> :noh<cr>
