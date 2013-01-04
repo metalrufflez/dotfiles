@@ -1,5 +1,6 @@
 # Sources
 source ~/.ventures
+source ~/.ec2-credentials
 
 # Environment variables
 export BROWSER="less"

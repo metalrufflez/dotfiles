@@ -28,7 +28,7 @@ let &t_Co=256
 
 "
 " REMAPS
-" 
+"
 
 cab W w
 cab Wq wq
@@ -73,7 +73,7 @@ set listchars=tab:▸\ ,eol:¬
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 
 " Open VSplit e move to it
-nnoremap <leader>w <C-w>v<C-w>l
+nnoremap <leader>v <C-w>v<C-w>l
 
 " Remaps to easily switch to other split:
 nnoremap <C-h> <C-w>h
@@ -81,15 +81,22 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" Open file Browser vertically
+nnoremap <leader>[ :Ve<cr>
+
+" Open file Browser horizontally
+nnoremap <leader>] :Se<cr>
+
 "
 " BUNDLES CONFIG
 "
 
 " NERDTree Toggle
-map <F10> :NERDTreeToggle<CR>
+"map <F10> :NERDTreeToggle<CR>
+"let NERDTreeHijackNetrw=1
 
 " NERDTree auto close
-au bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+"au bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " Gundo Toggle
 nnoremap <leader>u :GundoToggle<CR>
@@ -115,7 +122,7 @@ let g:Powerline_symbols = 'fancy'
 let g:acp_behaviorKeywordIgnores = ["if", "for", "print", "echo", "def", "case", "self", "class", "return", "len", "continue", "break"]
 let g:acp_enableAtStartup = 0
 
-" 
+"
 " VIM ADVANCED CONFIGS
 "
 
@@ -146,7 +153,7 @@ au BufNewFile,BufRead *.py map <F11> :w<CR>:!clear && python "%"<CR>
 
 "
 " MACVIM CONFIG
-" 
+"
 
 if has("gui_running")
 	colorscheme molokai
