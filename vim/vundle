@@ -20,6 +20,8 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'majutsushi/tagbar'
 Bundle 'tpope/vim-markdown'
 Bundle 'nelstrom/vim-markdown-preview'
+Bundle 'kana/vim-textobj-user'
+Bundle 'kana/vim-textobj-entire'
 
 " vim-puppet stuff
 Bundle 'rodjek/vim-puppet'

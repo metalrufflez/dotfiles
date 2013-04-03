@@ -1,6 +1,7 @@
 # Sources
 source ~/.ventures
 source ~/.ec2-credentials
+source ~/.extras
 
 # Environment variables
 export BROWSER="less"
@@ -51,6 +52,7 @@ alias md5sum="openssl dgst -md5"
 alias awskeys="cd /opt/git/private/aws/keys"
 alias vimrc="mvim ~/.vimrc"
 alias gitlog="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias fixow='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain user;killall Finder;echo "Open With has been rebuilt, Finder will relaunch"'
 
 # t alias
 alias t='python /usr/local/bin/t/t.py --task-dir ~/.tasks --list work'
