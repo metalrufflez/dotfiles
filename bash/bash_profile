@@ -1,14 +1,13 @@
 # Sources
 source ~/.ventures
 source ~/.ec2-credentials
-source ~/.extras
 
 # Environment variables
 export BROWSER="less"
 export PAGER="less"
 export EDITOR="vim"
 export CLICOLOR=1
-export PATH="$PATH:/usr/local/sbin"
+export LC_ALL="en_US.UTF-8"
 
 # Set Colors shortcuts
 export CBOLD="\[$(tput bold)\]" 
@@ -39,6 +38,7 @@ alias du="du -kc"
 alias grep="grep --color=always"
 alias egrep="egrep --color=always"
 alias fgrep="fgrep --color=always"
+alias vi="vim"
 
 # Vundle Aliases
 alias vundleinstall="vim +BundleInstall +qall"
@@ -53,10 +53,8 @@ alias awskeys="cd /opt/git/private/aws/keys"
 alias vimrc="mvim ~/.vimrc"
 alias gitlog="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias fixow='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain user;killall Finder;echo "Open With has been rebuilt, Finder will relaunch"'
-
-# t alias
-alias t='python /usr/local/bin/t/t.py --task-dir ~/.tasks --list work'
-alias p='python /usr/local/bin/t/t.py --task-dir ~/.tasks --list personal'
+alias sshconfig="vi ~/.ssh/config"
+alias bashprofilesource="source ~/.bash_profile"
 
 # SSH Aliases auto-complete
 complete -o default -W "$(grep -i "^host" $HOME/.ssh/config | cut -d" " -f2-)" scp sftp ssh

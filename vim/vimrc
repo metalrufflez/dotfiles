@@ -39,7 +39,6 @@ nnoremap k gk
 
 " Easily return to normal mode using jj or kk
 inoremap jj <ESC>
-inoremap kk <ESC>
 
 " Easily clean search hilighting with \<space>
 nnoremap <leader><space> :noh<cr>
@@ -92,11 +91,11 @@ nnoremap <leader>] :Se<cr>
 "
 
 " NERDTree Toggle
-"map <F10> :NERDTreeToggle<CR>
-"let NERDTreeHijackNetrw=1
+map <leader>t :NERDTreeToggle<CR>
+let NERDTreeHijackNetrw=0
 
 " NERDTree auto close
-"au bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+au bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " Gundo Toggle
 nnoremap <leader>u :GundoToggle<CR>
@@ -107,7 +106,7 @@ let g:gundo_close_on_revert = 1
 let g:gundo_preview_bottom = 1
 
 " Taglist plugin mapping
-nmap <leader>t :TagbarToggle<CR>
+nmap <leader>o :TagbarToggle<CR>
 
 " Taglist config
 "let g:tagbar_autofocus = 1
@@ -118,9 +117,8 @@ let g:tagbar_autoshowtag = 1
 " Powerline Fancy Settings
 let g:Powerline_symbols = 'fancy'
 
-" ACP Ignore List
-let g:acp_behaviorKeywordIgnores = ["if", "for", "print", "echo", "def", "case", "self", "class", "return", "len", "continue", "break"]
-let g:acp_enableAtStartup = 0
+" IndentLine color
+let g:indentLine_color_term = '237'
 
 "
 " VIM ADVANCED CONFIGS
