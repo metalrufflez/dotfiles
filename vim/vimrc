@@ -9,7 +9,8 @@ source ~/.vundle
 syn on
 set bg=dark
 set is ic hls scs aw ru si ai
-set sw=4 sts=4 ts=4 et
+set sw=4 sts=4 ts=4
+set et!
 set wildmenu wim=longest,list
 set cursorline relativenumber
 set nocompatible modelines=0
@@ -19,6 +20,11 @@ set scrolloff=3
 set undofile
 
 colorscheme molokai
+
+" Setting swap and undo directories
+set undodir=$HOME/.vim/undo
+set backupdir=$HOME/.vim/swap
+set directory=$HOME/.vim/swap
 
 " Reload config file
 map <F1> :source ~/.vimrc<CR>
@@ -34,8 +40,8 @@ cab W w
 cab Wq wq
 
 " Fix j/k
-nnoremap j gj
-nnoremap k gk
+" nnoremap j gj
+" nnoremap k gk
 
 " Easily return to normal mode using jj or kk
 inoremap jj <ESC>
@@ -75,16 +81,24 @@ nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 nnoremap <leader>v <C-w>v<C-w>l
 
 " Remaps to easily switch to other split:
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+" nnoremap <D-h> <C-w>h
+" nnoremap <D-j> <C-w>j
+" nnoremap <D-k> <C-w>k
+" nnoremap <D-l> <C-w>l
 
 " Open file Browser vertically
-nnoremap <leader>[ :Ve<cr>
+nnoremap <leader>\| :Ve<cr>
 
 " Open file Browser horizontally
-nnoremap <leader>] :Se<cr>
+nnoremap <leader>_ :Se<cr>
+
+" Requires tpope/vim-uninpaired
+" Bubble single lines
+nmap <C-k> [e
+nmap <C-j> ]e
+" Bubble multiple lines
+vmap <C-k> [egv
+vmap <C-j> ]egv
 
 "
 " BUNDLES CONFIG
@@ -117,9 +131,6 @@ let g:tagbar_autoshowtag = 1
 " Powerline Fancy Settings
 let g:Powerline_symbols = 'fancy'
 
-" IndentLine color
-let g:indentLine_color_term = '237'
-
 "
 " VIM ADVANCED CONFIGS
 "
@@ -137,17 +148,19 @@ au FocusLost ?* :wa
 
 " Custom file syntax
 au BufWritePre,BufRead *vundle* setfiletype vim
-
-" Puppet highlighting
 au BufRead,BufNewFile *.pp set filetype=puppet
+au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} set ft=markdown
 
 " IDE style 'run' commands
 " Bash
-au BufNewFile,BufRead *.sh map <F11> :w<CR>:!clear && bash "%"<CR>
-au BufNewFile,BufRead *.sh map <F12> :w<CR>:!clear && bash -x "%"<CR>
+au FileType sh map <F11> :w<CR>:!clear && bash "%"<CR>
+au FileType sh map <F12> :w<CR>:!clear && bash -x "%"<CR>
 
 " Python
-au BufNewFile,BufRead *.py map <F11> :w<CR>:!clear && python "%"<CR>
+au FileType python map <F11> :w<CR>:!clear && python "%"<CR>
+
+" MarkDown
+au FileType markdown map <F11> :w<CR>:!open -a /Applications/Google\ Chrome.app "%"<CR>
 
 "
 " MACVIM CONFIG

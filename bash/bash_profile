@@ -1,6 +1,6 @@
 # Sources
 source ~/.ventures
-source ~/.ec2-credentials
+source ~/.aws-credentials
 
 # Environment variables
 export BROWSER="less"
@@ -28,8 +28,10 @@ shopt -s histappend
 shopt -s cdspell
 
 # ec2-api-tools config
-export EC2_HOME="/usr/local/Library/LinkedKegs/ec2-api-tools/jars"
 export JAVA_HOME="$(/usr/libexec/java_home)"
+export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.6.12.0/libexec"
+export AWS_RDS_HOME="/usr/local/Cellar/rds-command-line-tools/1.14.001/libexec"
+export AWS_ELASTICACHE_HOME="/usr/local/Cellar/aws-elasticache/1.9.000/libexec"
 
 # Bash Aliases
 alias ls="ls -FG"
@@ -38,7 +40,8 @@ alias du="du -kc"
 alias grep="grep --color=always"
 alias egrep="egrep --color=always"
 alias fgrep="fgrep --color=always"
-alias vi="vim"
+alias sgrep="grep -sIl"
+alias vi="mvim"
 
 # Vundle Aliases
 alias vundleinstall="vim +BundleInstall +qall"
@@ -49,11 +52,11 @@ alias ctags="/usr/local/bin/ctags"
 
 # Other Helper Aliases
 alias md5sum="openssl dgst -md5"
-alias awskeys="cd /opt/git/private/aws/keys"
+alias awskeys="cd /opt/git/infra/private/aws/keys"
 alias vimrc="mvim ~/.vimrc"
 alias gitlog="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias fixow='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain user;killall Finder;echo "Open With has been rebuilt, Finder will relaunch"'
-alias sshconfig="vi ~/.ssh/config"
+alias sshconfig="mvim ~/.ssh/config"
 alias bashprofilesource="source ~/.bash_profile"
 
 # SSH Aliases auto-complete
@@ -68,14 +71,20 @@ export LESS_TERMCAP_se=$'\E[m'           # end standout-mode
 export LESS_TERMCAP_us=$'\E[4;36m'       # begin underline
 export LESS_TERMCAP_ue=$'\E[m'           # end underline
 
-# Function to rename tab on iTerm2
-function ttt() { 
-    echo -ne "\033]0;$@\007" 
-}
-
 # Sprunge function, use it after a |
 function sprunge() {
     lang=${1:+?$1}
     url=$(curl --silent -F 'sprunge=<-' http://sprunge.us)
     echo -n "${url# }$lang" | pbcopy
+}
+
+# Latex compiler helper
+function latexpress() {
+    output_dir="/tmp/latex_out"
+    filename=$(echo $* | egrep --color="never" -o "\w+.tex" | cut -d. -f1)
+
+    mkdir -p $output_dir
+    xelatex -halt-on-error -output-directory=$output_dir $* || return
+    mv $output_dir/${filename}.pdf .
+    open ${filename}.pdf
 }

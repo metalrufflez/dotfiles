@@ -10,6 +10,39 @@
         <productid>0x0134</productid>
     </deviceproductdef>
 
+    <deviceproductdef>
+        <productname>APPLE_INTERNAL_KEYBOARD_TRACKPAD_0x0259</productname>
+        <productid>0x0259</productid>
+    </deviceproductdef>
+
+    <item>
+        <name>Utility Mappings</name>
+
+        <item>
+            <name>Disable Sysdiagnose DOT Key</name>
+            <appendix>Disable Sysdiagnose Key</appendix>
+            <identifier>private.disable_sysdiagnosedot</identifier>
+            <autogen>
+                --KeyToKey--
+                KeyCode::DOT,
+                ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L,
+                KeyCode::VK_NONE
+            </autogen>
+        </item>
+
+        <item>
+            <name>Disable Sysdiagnose COMMA Key</name>
+            <appendix>Disable Sysdiagnose Key</appendix>
+            <identifier>private.disable_sysdiagnosecomma</identifier>
+            <autogen>
+                --KeyToKey--
+                KeyCode::COMMA,
+                ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L,
+                KeyCode::VK_NONE
+            </autogen>
+        </item> 
+    </item>
+
     <item>
         <name>Macbook Keyboard</name>
 
@@ -18,7 +51,7 @@
             <appendix>Map Option_R to Hyper and use it with Alfred as software shortcut</appendix>
             <appendix>Usable for Model M and Standalone MBP keyboard</appendix>
             <identifier>private.Opt_R_to_hyper</identifier>
-            <device_only>DeviceVendor::APPLE_INC, DeviceProduct::APPLE_INTERNAL_KEYBOARD_TRACKPAD_0x0236</device_only>
+            <device_only>DeviceVendor::APPLE_INC, DeviceProduct::APPLE_INTERNAL_KEYBOARD_TRACKPAD_0x0259</device_only>
 
             <autogen>
                 --KeyToKey--
@@ -35,7 +68,7 @@
             <appendix>On PCKeyboardHack remap Left Control to F19</appendix>
             <appendix>This option remaps F19 to FN</appendix>
             <identifier>private.caps_to_controll</identifier>
-            <device_only>DeviceVendor::APPLE_INC, DeviceProduct::APPLE_INTERNAL_KEYBOARD_TRACKPAD_0x0236</device_only>
+            <device_only>DeviceVendor::APPLE_INC, DeviceProduct::APPLE_INTERNAL_KEYBOARD_TRACKPAD_0x0259</device_only>
 
             <autogen>
                 --KeyOverlaidModifier-- 
@@ -47,7 +80,7 @@
 
     <item>
         <name>KBT Pure</name>
-        
+
         <item>
             <name>Tilde/Backquote to Hyper</name>
             <appendix>Map Tilde/Backquote to Hyper. Use with Alfred for app switching</appendix>
