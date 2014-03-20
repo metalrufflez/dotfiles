@@ -1,3 +1,4 @@
+" vim: set ft=vim:
 " Vundle config
 filetype off
 set rtp+=~/.vim/bundle/vundle/
@@ -6,8 +7,8 @@ call vundle#rc()
 " Vundle config
 filetype plugin indent on
 
-" Bundles
-" github
+" Bundles {{{1
+" github {{{2
 Bundle 'gmarik/vundle'
 Bundle 'msanders/snipmate.vim'
 Bundle 'tpope/vim-surround'
@@ -29,15 +30,15 @@ Bundle "matthias-guenther/hammer.vim"
 Bundle "elzr/vim-json"
 Bundle "scrooloose/syntastic"
 
-" vim-puppet stuff
+" vim-puppet stuff {{{3
 Bundle 'rodjek/vim-puppet'
 Bundle 'godlygeek/tabular'
 
-" vimscripts
+" vimscripts {{{2
 " Bundle 'python.vim'
 Bundle 'AutoTag'
 Bundle 'nginx.vim'
 "Bundle 'AutoClose'
 
-"Colorschemes
+"Colorschemes {{{1
 Bundle 'sjl/badwolf' 

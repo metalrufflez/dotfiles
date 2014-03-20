@@ -1,10 +1,9 @@
 " Vundle configfile source. Add the bundles to ~/.vundle and not here
 " Do not add any config BEFORE this line
 source ~/.vundle
+source ~/.vim_functions
 
-"
-" BASIC CONFIG
-"
+" BASIC CONFIG {{{1
 
 syn on
 set bg=dark
@@ -13,7 +12,7 @@ set sw=4 sts=4 ts=4
 set et!
 set wildmenu wim=longest,list
 set cursorline relativenumber
-set nocompatible modelines=0
+set nocompatible modeline modelines=1
 set showmode showcmd ttyfast
 set laststatus=2
 set scrolloff=3
@@ -32,9 +31,7 @@ map <F1> :source ~/.vimrc<CR>
 " Color fix
 let &t_Co=256
 
-"
-" REMAPS
-"
+" REMAPS {{{1
 
 cab W w
 cab Wq wq
@@ -70,6 +67,22 @@ vnoremap <Space> za
 nnoremap <S-Space> zA
 vnoremap <S-Space> zA
 
+" Remaps to easily switch to other split:
+" nnoremap <D-h> <C-w>h
+" nnoremap <D-j> <C-w>j
+" nnoremap <D-k> <C-w>k
+" nnoremap <D-l> <C-w>l
+
+" Requires tpope/vim-uninpaired
+" Bubble single lines
+nmap <C-k> [e
+nmap <C-j> ]e
+" Bubble multiple lines
+vmap <C-k> [egv
+vmap <C-j> ]egv
+
+" MAPPING MAGIC {{{1
+
 " Toggle visible whitespace
 nmap <leader>l :set list!<CR>
 set listchars=tab:▸\ ,eol:¬
@@ -80,29 +93,13 @@ nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 " Open VSplit e move to it
 nnoremap <leader>v <C-w>v<C-w>l
 
-" Remaps to easily switch to other split:
-" nnoremap <D-h> <C-w>h
-" nnoremap <D-j> <C-w>j
-" nnoremap <D-k> <C-w>k
-" nnoremap <D-l> <C-w>l
-
 " Open file Browser vertically
 nnoremap <leader>\| :Ve<cr>
 
 " Open file Browser horizontally
 nnoremap <leader>_ :Se<cr>
 
-" Requires tpope/vim-uninpaired
-" Bubble single lines
-nmap <C-k> [e
-nmap <C-j> ]e
-" Bubble multiple lines
-vmap <C-k> [egv
-vmap <C-j> ]egv
-
-"
-" BUNDLES CONFIG
-"
+" BUNDLES CONFIG {{{1
 
 " NERDTree Toggle
 map <leader>t :NERDTreeToggle<CR>
@@ -131,9 +128,7 @@ let g:tagbar_autoshowtag = 1
 " Powerline Fancy Settings
 let g:Powerline_symbols = 'fancy'
 
-"
-" VIM ADVANCED CONFIGS
-"
+" ADVANCED CONFIGS {{{1
 
 " Omnicomplete
 set ofu=syntaxcomplete#Complete
@@ -147,11 +142,10 @@ au BufWinEnter ?* silent loadview
 au FocusLost ?* :wa
 
 " Custom file syntax
-au BufWritePre,BufRead *vundle* setfiletype vim
 au BufRead,BufNewFile *.pp set filetype=puppet
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} set ft=markdown
 
-" IDE style 'run' commands
+" IDE style 'run' commands {{{2
 " Bash
 au FileType sh map <F11> :w<CR>:!clear && bash "%"<CR>
 au FileType sh map <F12> :w<CR>:!clear && bash -x "%"<CR>
@@ -162,9 +156,17 @@ au FileType python map <F11> :w<CR>:!clear && python "%"<CR>
 " MarkDown
 au FileType markdown map <F11> :w<CR>:!open -a /Applications/Google\ Chrome.app "%"<CR>
 
-"
-" MACVIM CONFIG
-"
+" Folding Configs {{{2
+
+au BufRead,BufNewFile ?* set foldtext=FoldText()
+
+" SSHconfig
+au BufRead,BufNewFile *.ssh/config set foldexpr=SSHconfigFolds()
+
+" Vim configs
+au FileType vim set foldmethod=marker
+
+" MACVIM CONFIG {{{1
 
 if has("gui_running")
 	colorscheme molokai
@@ -180,3 +182,4 @@ if has("gui_running")
     " Python
     au BufNewFile,BufRead *.py map <F11> :w<CR>:!python "%"<CR>
 endif
+
