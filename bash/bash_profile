@@ -18,8 +18,8 @@ export CYELLOW="\[$(tput setaf 3)\]"
 export CRED="\[$(tput setaf 1)\]"
 export CRESET="\[$(tput sgr0)\]"
 
-#export PS1="$CBLUE\u$CWHITE@$CGREEN\h$CWHITE|\$(count_tasks)$CWHITE:$CRED\w\n$CWHITE\\$ $CRESET"
-export PS1="$CBLUE\u$CWHITE@$CGREEN\h$CWHITE:$CRED\w\n$CWHITE\\$ $CRESET"
+export PS1="$CBLUE\u$CWHITE@$CGREEN\h$CWHITE|\$(count_todo)$CWHITE:$CRED\w\n$CWHITE\\$ $CRESET"
+#export PS1="$CBLUE\u$CWHITE@$CGREEN\h$CWHITE:$CRED\w\n$CWHITE\\$ $CRESET"
 
 # Keep History under control
 export HISTCONTROL=erasedups
@@ -58,6 +58,11 @@ alias gitlog="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %C
 alias fixow='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain user;killall Finder;echo "Open With has been rebuilt, Finder will relaunch"'
 alias sshconfig="mvim ~/.ssh/config"
 alias bashprofilesource="source ~/.bash_profile"
+
+# t alias
+#alias t='python /Users/metalrufflez/Dropbox/Apps/t/t.py --task-dir /Users/metalrufflez/Dropbox/Sync/tasks --list work'
+#alias c='python /Users/metalrufflez/Dropbox/Apps/t/t.py --task-dir /Users/metalrufflez/Dropbox/Sync/tasks --list personal'
+alias t="$HOME/Applications/todo.txt/todo.sh -c"
 
 # SSH Aliases auto-complete
 complete -o default -W "$(grep -i "^host" $HOME/.ssh/config | cut -d" " -f2-)" scp sftp ssh
