@@ -67,6 +67,7 @@ alias c="$HOME/Dropbox/Apps/todo.txt/todo.sh -c ls +caio"
 alias w="$HOME/Dropbox/Apps/todo.txt/todo.sh -c ls -+caio"
 alias d="$HOME/Dropbox/Apps/todo.txt/todo.sh -c do"
 alias p="$HOME/Dropbox/Apps/todo.txt/todo.sh -c pri"
+alias m="$HOME/Dropbox/Apps/todo.txt/todo.sh -c addm"
 
 # SSH Aliases auto-complete
 complete -o default -W "$(grep -i "^host" $HOME/.ssh/config | cut -d" " -f2-)" scp sftp ssh
@@ -100,4 +101,8 @@ function latexpress() {
 
 function ca() {
     t a "+caio - $*"
+}
+
+function a() {
+    t a "$*"
 }
