@@ -65,9 +65,10 @@ alias bashprofilesource="source ~/.bash_profile"
 alias t="$HOME/Dropbox/Apps/todo.txt/todo.sh -c"
 alias c="$HOME/Dropbox/Apps/todo.txt/todo.sh -c ls +caio"
 alias w="$HOME/Dropbox/Apps/todo.txt/todo.sh -c ls -+caio"
-alias d="$HOME/Dropbox/Apps/todo.txt/todo.sh -c do"
-alias p="$HOME/Dropbox/Apps/todo.txt/todo.sh -c pri"
-alias m="$HOME/Dropbox/Apps/todo.txt/todo.sh -c addm"
+alias d="$HOME/Dropbox/Apps/todo.txt/todo.sh do"
+alias p="$HOME/Dropbox/Apps/todo.txt/todo.sh pri"
+alias m="$HOME/Dropbox/Apps/todo.txt/todo.sh addm"
+alias r="$HOME/Dropbox/Apps/todo.txt/todo.sh -r rm"
 
 # SSH Aliases auto-complete
 complete -o default -W "$(grep -i "^host" $HOME/.ssh/config | cut -d" " -f2-)" scp sftp ssh
