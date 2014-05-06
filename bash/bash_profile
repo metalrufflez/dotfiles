@@ -8,6 +8,7 @@ export PAGER="less"
 export EDITOR="vim"
 export CLICOLOR=1
 export LC_ALL="en_US.UTF-8"
+export GOPATH="/opt/go"
 
 # Set Colors shortcuts
 export CBOLD="\[$(tput bold)\]" 
@@ -24,14 +25,9 @@ export PS1="$CBLUE\u$CWHITE@$CGREEN\h$CWHITE|\$(count_todo)$CWHITE:$CRED\w\n$CWH
 # Keep History under control
 export HISTCONTROL=erasedups
 export HISTSIZE=100000
+export PROMPT_COMMAND="history -a; history -n"
 shopt -s histappend
 shopt -s cdspell
-
-# ec2-api-tools config
-export JAVA_HOME="$(/usr/libexec/java_home)"
-export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.6.12.0/libexec"
-export AWS_RDS_HOME="/usr/local/Cellar/rds-command-line-tools/1.14.001/libexec"
-export AWS_ELASTICACHE_HOME="/usr/local/Cellar/aws-elasticache/1.9.000/libexec"
 
 # Bash Aliases
 alias ls="ls -FG"
@@ -42,6 +38,8 @@ alias egrep="egrep --color=always"
 alias fgrep="fgrep --color=always"
 alias sgrep="grep -sIl"
 alias vi="mvim"
+alias vim="mvim"
+alias vimdiff="mvim -d"
 
 # Vundle Aliases
 alias vundleinstall="vim +BundleInstall +qall"
@@ -72,6 +70,7 @@ alias r="$HOME/Dropbox/Apps/todo.txt/todo.sh -r rm"
 
 # SSH Aliases auto-complete
 complete -o default -W "$(grep -i "^host" $HOME/.ssh/config | cut -d" " -f2-)" scp sftp ssh
+complete -C aws_completer aws
 
 # Less Colors for Man Pages
 export LESS_TERMCAP_mb=$'\E[5;31m'       # begin blinking

@@ -8,7 +8,6 @@ call vundle#rc()
 filetype plugin indent on
 
 " Bundles {{{1
-" github {{{2
 Bundle 'gmarik/vundle'
 Bundle 'msanders/snipmate.vim'
 Bundle 'tpope/vim-surround'
@@ -23,22 +22,23 @@ Bundle 'kana/vim-textobj-user'
 Bundle 'kana/vim-textobj-entire'
 Bundle 'tpope/vim-surround'
 Bundle 'Rykka/colorv.vim'
-Bundle 'plasticboy/vim-markdown'
 Bundle 'tpope/vim-unimpaired'
 Bundle "kien/ctrlp.vim"
 Bundle "matthias-guenther/hammer.vim"
-Bundle "elzr/vim-json"
 Bundle "scrooloose/syntastic"
-
-" vim-puppet stuff {{{3
-Bundle 'rodjek/vim-puppet'
 Bundle 'godlygeek/tabular'
 
-" vimscripts {{{2
 " Bundle 'python.vim'
 Bundle 'AutoTag'
-Bundle 'nginx.vim'
 "Bundle 'AutoClose'
 
 "Colorschemes {{{1
 Bundle 'sjl/badwolf' 
+
+" Syntax {{{1
+Bundle 'plasticboy/vim-markdown'
+Bundle "elzr/vim-json"
+Bundle "vim-ruby/vim-ruby"
+Bundle 'rodjek/vim-puppet'
+
+Bundle 'nginx.vim'
