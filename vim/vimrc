@@ -108,8 +108,6 @@ let NERDTreeHijackNetrw=0
 " NERDTree auto close
 au bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-" Don't quit on open
-
 " Gundo Toggle
 nnoremap <leader>u :GundoToggle<CR>
 
