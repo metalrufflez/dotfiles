@@ -27,9 +27,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'godlygeek/tabular'
 Bundle 'itspriddle/vim-marked'
 
-" Bundle 'python.vim'
 Bundle 'AutoTag'
-"Bundle 'AutoClose'
 
 " Colorschemes {{{1
 Bundle 'sjl/badwolf' 
@@ -39,6 +37,7 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'nanotech/jellybeans.vim'
 Bundle 'djjcast/mirodark'
+Bundle 'w0ng/vim-hybrid'
 
 " Syntax {{{1
 Bundle 'plasticboy/vim-markdown'
@@ -47,3 +46,4 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'rodjek/vim-puppet'
 
 Bundle 'nginx.vim'
+Bundle 'python.vim'

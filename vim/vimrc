@@ -19,7 +19,7 @@ set noshowmode
 set scrolloff=3
 set undofile
 
-colorscheme molokai
+colorscheme jellybeans
 
 " Setting swap and undo directories
 set undodir=$HOME/.vim/undo
@@ -63,6 +63,8 @@ nnoremap <leader>w :set wrap!<CR>
 nnoremap <leader>b :!bash<CR>
 
 " Easy open/close folds
+nnoremap <leader>z zi
+vnoremap <leader>z zi
 nnoremap <Space> za
 vnoremap <Space> za
 nnoremap <S-Space> zA
@@ -134,11 +136,6 @@ let g:Powerline_symbols = 'fancy'
 
 " ADVANCED CONFIGS {{{1
 
-" Omnicomplete
-set ofu=syntaxcomplete#Complete
-au FileType python set omnifunc=pythoncomplete#Complete
-au FileType python colorscheme Tomorrow-Night
-
 " Return cursor to where left
 au BufWinLeave ?* mkview
 au BufWinEnter ?* silent loadview
@@ -146,22 +143,29 @@ au BufWinEnter ?* silent loadview
 " Save when losing focus
 au FocusLost ?* :wa
 
+" Omnicomplete
+set ofu=syntaxcomplete#Complete
+
+" FILE TYPE SPECIFIC CONFIGS {{{2
+
 " Custom file syntax
 au BufRead,BufNewFile *.pp set filetype=puppet
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} set ft=markdown
+au BufNewFile,BufRead *.{json,jsonp} set filetype=json
+
+" Python
+au FileType python set omnifunc=pythoncomplete#Complete
 
 " JSON settings
-au BufNewFile,BufRead *.{json,jsonp} set filetype=json
 au Filetype json set sts=2 ts=2 sw=2 foldmethod=syntax
-
 
 " IDE style 'run' commands {{{2
 " Bash
-au FileType sh map <F11> :w<CR>:!clear && bash "%"<CR>
-au FileType sh map <F12> :w<CR>:!clear && bash -x "%"<CR>
+au FileType sh map <F11> :w<CR>:!bash "%"<CR>
+au FileType sh map <F12> :w<CR>:!bash -x "%"<CR>
 
 " Python
-au FileType python map <F11> :w<CR>:!clear && python "%"<CR>
+au FileType python map <F11> :w<CR>:!python "%"<CR>
 
 " MarkDown
 au FileType markdown map <F11> :w<CR>:!open -a /Applications/Google\ Chrome.app "%"<CR>
@@ -179,16 +183,7 @@ au FileType vim set foldmethod=marker
 " MACVIM CONFIG {{{1
 
 if has("gui_running")
-	colorscheme jellybeans
 	set guioptions-=r
 	set guioptions-=L
 	set guifont=DroidSansMonoSlashedForPowerline:h12
-
-	" IDE style 'run' commands
-    " Bash
-    au BufNewFile,BufRead *.sh map <F11> :w<CR>:!bash "%"<CR>
-    au BufNewFile,BufRead *.sh map <F12> :w<CR>:!bash -x "%"<CR>
-
-    " Python
-    au BufNewFile,BufRead *.py map <F11> :w<CR>:!python "%"<CR>
 endif
