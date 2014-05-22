@@ -23,9 +23,9 @@ export PS1="$CBLUE\u$CWHITE@$CGREEN\h$CWHITE|\$(count_todo)$CWHITE:$CRED\w\n$CWH
 #export PS1="$CBLUE\u$CWHITE@$CGREEN\h$CWHITE:$CRED\w\n$CWHITE\\$ $CRESET"
 
 # Keep History under control
+# export PROMPT_COMMAND="history -a; history -n"
 export HISTCONTROL=erasedups
 export HISTSIZE=100000
-export PROMPT_COMMAND="history -a; history -n"
 shopt -s histappend
 shopt -s cdspell
 
@@ -42,8 +42,10 @@ alias vim="mvim"
 alias vimdiff="mvim -d"
 
 # Vundle Aliases
-alias vundleinstall="vim +BundleInstall +qall"
-alias vundleclean="vim +BundleClean! +qall"
+alias vundleinstall="vim +PluginInstall +qall"
+alias vundleclean="vim +PluginClean! +qall"
+alias vundlelist="vim +PluginList +qall"
+alias vundleupdate="vim +PluginUpdate +qall"
 
 # Fix wrong ctags version
 alias ctags="/usr/local/bin/ctags"
@@ -56,6 +58,7 @@ alias gitlog="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %C
 alias fixow='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain user;killall Finder;echo "Open With has been rebuilt, Finder will relaunch"'
 alias sshconfig="mvim ~/.ssh/config"
 alias bashprofilesource="source ~/.bash_profile"
+alias updatedb="sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist"
 
 # t alias
 #alias t='python /Users/metalrufflez/Dropbox/Apps/t/t.py --task-dir /Users/metalrufflez/Dropbox/Sync/tasks --list work'
@@ -106,3 +109,4 @@ function ca() {
 function a() {
     t a "$*"
 }
+

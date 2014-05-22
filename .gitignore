@@ -1,3 +1,15 @@
 *.un~
 *.swp
 *.swo
+vim/vim/bundle
+.DS_Store
+com.dustinrue.ControlPlane.plist
+keyboard/org.pqrs.KeyRemap4MacBook.plist
+keyboard/storedata
+ssh/
+tasks/
+vim/vim/.DS_Store
+vim/vim/.netrwhist
+vim/vim/undo/
+vim/vim/view/
+vim/viminfo

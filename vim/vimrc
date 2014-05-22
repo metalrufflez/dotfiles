@@ -9,12 +9,13 @@ syn on
 set bg=dark
 set is ic hls scs aw ru si ai
 set sw=4 sts=4 ts=4
-set et!
+set noexpandtab
 set wildmenu wim=longest,list
 set cursorline relativenumber
 set nocompatible modeline modelines=1
 set showmode showcmd ttyfast
 set laststatus=2
+set noshowmode
 set scrolloff=3
 set undofile
 
@@ -99,10 +100,11 @@ nnoremap <leader>\| :Ve<cr>
 " Open file Browser horizontally
 nnoremap <leader>_ :Se<cr>
 
-" BUNDLES CONFIG {{{1
+" PLUGIN CONFIG {{{1
 
 " NERDTree Toggle
 map <leader>t :NERDTree<CR>
+map <leader>r :NERDTreeToggle<CR>
 let NERDTreeHijackNetrw=0
 
 " NERDTree auto close
@@ -126,13 +128,16 @@ let g:tagbar_compact = 1
 let g:tagbar_autoshowtag = 1
 
 " Powerline Fancy Settings
+set rtp+="~/.vim/bundle/powerline/powerline/bindings/vim/"
+
 let g:Powerline_symbols = 'fancy'
 
 " ADVANCED CONFIGS {{{1
 
 " Omnicomplete
 set ofu=syntaxcomplete#Complete
-autocmd FileType python     set omnifunc=pythoncomplete#Complete
+au FileType python set omnifunc=pythoncomplete#Complete
+au FileType python colorscheme Tomorrow-Night
 
 " Return cursor to where left
 au BufWinLeave ?* mkview
@@ -144,6 +149,11 @@ au FocusLost ?* :wa
 " Custom file syntax
 au BufRead,BufNewFile *.pp set filetype=puppet
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} set ft=markdown
+
+" JSON settings
+au BufNewFile,BufRead *.{json,jsonp} set filetype=json
+au Filetype json set sts=2 ts=2 sw=2 foldmethod=syntax
+
 
 " IDE style 'run' commands {{{2
 " Bash
@@ -169,10 +179,10 @@ au FileType vim set foldmethod=marker
 " MACVIM CONFIG {{{1
 
 if has("gui_running")
-	colorscheme molokai
+	colorscheme jellybeans
 	set guioptions-=r
 	set guioptions-=L
-	set guifont=Menlo:h12
+	set guifont=DroidSansMonoSlashedForPowerline:h12
 
 	" IDE style 'run' commands
     " Bash
@@ -182,4 +192,3 @@ if has("gui_running")
     " Python
     au BufNewFile,BufRead *.py map <F11> :w<CR>:!python "%"<CR>
 endif
-
