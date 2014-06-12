@@ -26,6 +26,10 @@ Bundle 'matthias-guenther/hammer.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'godlygeek/tabular'
 Bundle 'itspriddle/vim-marked'
+Bundle 'samsonw/vim-task'
+Bundle 'Townk/vim-autoclose'
+Bundle 'duff/vim-scratch'
+Bundle 'tpope/vim-fugitive'
 
 Bundle 'AutoTag'
 

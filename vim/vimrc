@@ -105,12 +105,15 @@ nnoremap <leader>_ :Se<cr>
 " PLUGIN CONFIG {{{1
 
 " NERDTree Toggle
-map <leader>t :NERDTree<CR>
-map <leader>r :NERDTreeToggle<CR>
+map <leader>t :NERDTreeToggle<CR>
+map <leader>c :NERDTreeCWD<CR>
 let NERDTreeHijackNetrw=0
 
 " NERDTree auto close
 au bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" NERDTree auto open
+au vimenter * if !argc() | NERDTree | endif
 
 " Gundo Toggle
 nnoremap <leader>u :GundoToggle<CR>
@@ -131,8 +134,20 @@ let g:tagbar_autoshowtag = 1
 
 " Powerline Fancy Settings
 set rtp+="~/.vim/bundle/powerline/powerline/bindings/vim/"
-
 let g:Powerline_symbols = 'fancy'
+
+" Syntastic Settings
+let g:syntastic_json_checkers=['jsonlint']
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '!'
+
+" Scratch
+nmap <leader>s :Sscratch<CR>
+
+" Git Push
+nmap <leader>gp :Git push<CR>
 
 " ADVANCED CONFIGS {{{1
 
@@ -158,6 +173,10 @@ au FileType python set omnifunc=pythoncomplete#Complete
 
 " JSON settings
 au Filetype json set sts=2 ts=2 sw=2 foldmethod=syntax
+
+" vim-task rebinding
+au Filetype task inoremap <silent> <buffer> <C-E> <ESC>:call Toggle_task_status()<CR>i
+au Filetype task noremap <silent> <buffer> <C-E> :call Toggle_task_status()<CR>
 
 " IDE style 'run' commands {{{2
 " Bash
@@ -185,5 +204,6 @@ au FileType vim set foldmethod=marker
 if has("gui_running")
 	set guioptions-=r
 	set guioptions-=L
-	set guifont=DroidSansMonoSlashedForPowerline:h12
+	" set guifont=DroidSansMonoSlashedForPowerline:h12
+	set guifont=PragmataProForPowerline:h13
 endif
