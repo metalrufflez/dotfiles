@@ -5,8 +5,18 @@
         <vendorid>0x04d9</vendorid>
     </devicevendordef>
 
+    <devicevendordef>
+        <vendorname>LEOPOLD</vendorname>
+        <vendorid>0x0853</vendorid>
+    </devicevendordef>
+
     <deviceproductdef>
         <productname>Pure</productname>
+        <productid>0x0134</productid>
+    </deviceproductdef>
+
+    <deviceproductdef>
+		<productname>FC660</productname>
         <productid>0x0134</productid>
     </deviceproductdef>
 
@@ -21,7 +31,7 @@
         <item>
             <name>Disable Sysdiagnose DOT Key</name>
             <appendix>Disable Sysdiagnose Key</appendix>
-            <identifier>private.disable_sysdiagnosedot</identifier>
+            <identifier>private.utility_disable_sysdiagnosedot</identifier>
             <autogen>
                 --KeyToKey--
                 KeyCode::DOT,
@@ -33,7 +43,7 @@
         <item>
             <name>Disable Sysdiagnose COMMA Key</name>
             <appendix>Disable Sysdiagnose Key</appendix>
-            <identifier>private.disable_sysdiagnosecomma</identifier>
+            <identifier>private.utility_disable_sysdiagnosecomma</identifier>
             <autogen>
                 --KeyToKey--
                 KeyCode::COMMA,
@@ -44,39 +54,68 @@
     </item>
 
     <item>
-        <name>Macbook Keyboard</name>
+        <name>Leopold FC660</name>
 
         <item>
-            <name>Option_R to Hyper</name>
-            <appendix>Map Option_R to Hyper and use it with Alfred as software shortcut</appendix>
-            <appendix>Usable for Model M and Standalone MBP keyboard</appendix>
-            <identifier>private.Opt_R_to_hyper</identifier>
-            <device_only>DeviceVendor::APPLE_INC, DeviceProduct::APPLE_INTERNAL_KEYBOARD_TRACKPAD_0x0259</device_only>
+            <name>Tilde/Backquote to Hyper</name>
+            <appendix>Map Insert to Hyper. Use with Alfred for app switching</appendix>
+            <identifier>private.leopold_insert_to_hyper</identifier>
+            <device_only>DeviceVendor::LEOPOLD, DeviceProduct::FC660</device_only>
 
             <autogen>
                 --KeyToKey--
-                KeyCode::OPTION_R,
-
+                KeyCode::HELP,
                 KeyCode::COMMAND_L,
                 ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L
             </autogen>
         </item>
 
         <item>
-            <name>Caps Lock to Control_L</name>
-            <appendix>On OSX Keyboard Prefpane Caps Lock must be assigned to Control</appendix>
+            <name>Left Control to FN</name>
             <appendix>On PCKeyboardHack remap Left Control to F19</appendix>
             <appendix>This option remaps F19 to FN</appendix>
-            <identifier>private.caps_to_controll</identifier>
-            <device_only>DeviceVendor::APPLE_INC, DeviceProduct::APPLE_INTERNAL_KEYBOARD_TRACKPAD_0x0259</device_only>
+            <identifier>private.leopold_f19_to_fn</identifier>
+            <device_only>DeviceVendor::LEOPOLD, DeviceProduct::FC660</device_only>
 
             <autogen>
-                --KeyOverlaidModifier-- 
-                KeyCode::F19, 
-                KeyCode::CONTROL_L, KeyCode::ESCAPE
+                --KeyToKey--
+                KeyCode::F19,
+                KeyCode::FN
             </autogen>
         </item>
-    </item>
+
+        <item>
+            <name>Leopold to OSX Functional Keys</name>
+            <appendix>Remap F-Row to OSX Functions</appendix>
+            <appendix>Use this instead of the default to avoid conflicts with MBP Keyboard</appendix>
+            <appendix>This setting is disabled when using Virtual Machines or Remote Desktop Connection</appendix>
+            <identifier>private.leopold_frow_to_functions</identifier>
+            <device_only>DeviceVendor::LEOPOLD, DeviceProduct::FC660</device_only>
+            <not>VIRTUALMACHINE, REMOTEDESKTOPCONNECTION</not>
+
+            <autogen>__KeyToKey__ KeyCode::F1,  ModifierFlag::FN, KeyCode::F1</autogen>
+            <autogen>__KeyToKey__ KeyCode::F2,  ModifierFlag::FN, KeyCode::F2</autogen>
+            <autogen>__KeyToKey__ KeyCode::F3,  ModifierFlag::FN, KeyCode::F3</autogen>
+            <autogen>__KeyToKey__ KeyCode::F4,  ModifierFlag::FN, KeyCode::F4</autogen>
+            <autogen>__KeyToKey__ KeyCode::F7,  ModifierFlag::FN, KeyCode::F7</autogen>
+            <autogen>__KeyToKey__ KeyCode::F8,  ModifierFlag::FN, KeyCode::F8</autogen>
+            <autogen>__KeyToKey__ KeyCode::F9,  ModifierFlag::FN, KeyCode::F9</autogen>
+            <autogen>__KeyToKey__ KeyCode::F10, ModifierFlag::FN, KeyCode::F10</autogen>
+            <autogen>__KeyToKey__ KeyCode::F11, ModifierFlag::FN, KeyCode::F11</autogen>
+            <autogen>__KeyToKey__ KeyCode::F12, ModifierFlag::FN, KeyCode::F12</autogen>
+
+            <autogen>__KeyToConsumer__ KeyCode::F1,  ConsumerKeyCode::BRIGHTNESS_DOWN</autogen>
+            <autogen>__KeyToConsumer__ KeyCode::F2,  ConsumerKeyCode::BRIGHTNESS_UP</autogen>
+            <autogen>__KeyToKey__      KeyCode::F3,  KeyCode::EXPOSE_ALL</autogen>
+            <autogen>__KeyToKey__      KeyCode::F4,  KeyCode::DASHBOARD</autogen>
+            <autogen>__KeyToConsumer__ KeyCode::F7,  ConsumerKeyCode::MUSIC_PREV</autogen>
+            <autogen>__KeyToConsumer__ KeyCode::F8,  ConsumerKeyCode::MUSIC_PLAY</autogen>
+            <autogen>__KeyToConsumer__ KeyCode::F9,  ConsumerKeyCode::MUSIC_NEXT</autogen>
+            <autogen>__KeyToConsumer__ KeyCode::F10, ConsumerKeyCode::VOLUME_MUTE</autogen>
+            <autogen>__KeyToConsumer__ KeyCode::F11, ConsumerKeyCode::VOLUME_DOWN</autogen>
+            <autogen>__KeyToConsumer__ KeyCode::F12, ConsumerKeyCode::VOLUME_UP</autogen>
+        </item>
+	</item>
 
     <item>
         <name>KBT Pure</name>
@@ -84,7 +123,7 @@
         <item>
             <name>Tilde/Backquote to Hyper</name>
             <appendix>Map Tilde/Backquote to Hyper. Use with Alfred for app switching</appendix>
-            <identifier>private.tilde_to_hyper</identifier>
+            <identifier>private.pure_tilde_to_hyper</identifier>
             <device_only>DeviceVendor::KBT, DeviceProduct::Pure</device_only>
 
             <autogen>
@@ -100,7 +139,7 @@
             <appendix>Esc = Backquote</appendix>
             <appendix>Shift + Esc = Tilde</appendix>
             <appendix>Fn + Esc = Esc</appendix>
-            <identifier>private.esc_to_backquote</identifier>
+            <identifier>private.pure_esc_to_backquote</identifier>
             <device_only>DeviceVendor::KBT, DeviceProduct::Pure</device_only>
 
             <autogen>
@@ -144,7 +183,7 @@
             <name>Left Control to FN</name>
             <appendix>On PCKeyboardHack remap Left Control to F19</appendix>
             <appendix>This option remaps F19 to FN</appendix>
-            <identifier>private.f19_to_fn</identifier>
+            <identifier>private.pure_f19_to_fn</identifier>
             <device_only>DeviceVendor::KBT, DeviceProduct::Pure</device_only>
 
             <autogen>
@@ -157,7 +196,7 @@
         <item>
             <name>NumLock = F16</name>
             <appendix>Remaps this FN Layer function to F16 to use with Alfred</appendix>
-            <identifier>private.apps_to_F16</identifier>
+            <identifier>private.pure_apps_to_F16</identifier>
             <device_only>DeviceVendor::KBT, DeviceProduct::Pure</device_only>
 
             <autogen>
@@ -170,7 +209,7 @@
         <item>
             <name>Insert = F17</name>
             <appendix>Remaps this FN Layer function to F17 to use with Alfred</appendix>
-            <identifier>private.apps_to_F17</identifier>
+            <identifier>private.pure_apps_to_F17</identifier>
             <device_only>DeviceVendor::KBT, DeviceProduct::Pure</device_only>
 
             <autogen>
@@ -183,7 +222,7 @@
         <item>
             <name>Fn+Tilde = F18</name>
             <appendix>Remaps this FN Layer function to F18 to use with Alfred</appendix>
-            <identifier>private.apps_to_F18</identifier>
+            <identifier>private.pure_apps_to_F18</identifier>
             <device_only>DeviceVendor::KBT, DeviceProduct::Pure</device_only>
 
             <autogen>
@@ -198,7 +237,7 @@
             <appendix>Remap F-Row to OSX Functions</appendix>
             <appendix>Use this instead of the default to avoid conflicts with MBP Keyboard</appendix>
             <appendix>This setting is disabled when using Virtual Machines or Remote Desktop Connection</appendix>
-            <identifier>private.frow_to_functions</identifier>
+            <identifier>private.pure_frow_to_functions</identifier>
             <device_only>DeviceVendor::KBT, DeviceProduct::Pure</device_only>
             <not>VIRTUALMACHINE, REMOTEDESKTOPCONNECTION</not>
 
@@ -224,7 +263,6 @@
             <autogen>__KeyToConsumer__ KeyCode::F11, ConsumerKeyCode::VOLUME_DOWN</autogen>
             <autogen>__KeyToConsumer__ KeyCode::F12, ConsumerKeyCode::VOLUME_UP</autogen>
         </item>
-
     </item>
 
     <item>
@@ -233,7 +271,7 @@
         <item>
             <name>Pause Break to F13</name>
             <appendix>Remap Pause/Break to F13 and use it with Alfred</appendix>
-            <identifier>private.pause_to_f13</identifier>
+            <identifier>private.modelm_pause_to_f13</identifier>
 
             <autogen>
                 --KeyToKey--
@@ -245,7 +283,7 @@
         <item>
             <name>Opt+Tab = Control+Tab</name>
             <appendix>To make life easier</appendix>
-            <identifier>private.opttab_ctrltab</identifier>
+            <identifier>private.modelm_opttab_ctrltab</identifier>
 
             <autogen>
                 --KeyToKey--
@@ -262,7 +300,7 @@
         <item>
             <name>Control+. = Option+.</name>
             <appendix>To make life easier</appendix>
-            <identifier>private.ctrldot_optdot</identifier>
+            <identifier>private.modelm_ctrldot_optdot</identifier>
 
             <autogen>
                 --KeyToKey--
@@ -274,7 +312,7 @@
         <item>
             <name>FN+WASD to Cursor Keys</name>
             <appendix>FPS like cursor. Also FN+Q/E = PAGE UP/DOWN</appendix>
-            <identifier>private.wasd_to_cursor</identifer>
+            <identifier>private.modelm_wasd_to_cursor</identifier>
 
             <autogen>
                 --KeyToKey--
@@ -305,6 +343,41 @@
                 --KeyToKey--
                 KeyCode::E, ModifierFlag::FN,
                 KeyCode::PAGEDOWN
+            </autogen>
+        </item>
+    </item>
+
+    <item>
+        <name>Macbook Keyboard</name>
+
+        <item>
+            <name>Option_R to Hyper</name>
+            <appendix>Map Option_R to Hyper and use it with Alfred as software shortcut</appendix>
+            <appendix>Usable for Model M and Standalone MBP keyboard</appendix>
+            <identifier>private.macbook_Opt_R_to_hyper</identifier>
+            <device_only>DeviceVendor::APPLE_INC, DeviceProduct::APPLE_INTERNAL_KEYBOARD_TRACKPAD_0x0259</device_only>
+
+            <autogen>
+                --KeyToKey--
+                KeyCode::OPTION_R,
+
+                KeyCode::COMMAND_L,
+                ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L
+            </autogen>
+        </item>
+
+        <item>
+            <name>Caps Lock to Control_L</name>
+            <appendix>On OSX Keyboard Prefpane Caps Lock must be assigned to Control</appendix>
+            <appendix>On PCKeyboardHack remap Left Control to F19</appendix>
+            <appendix>This option remaps F19 to FN</appendix>
+            <identifier>private.macbook_caps_to_controll</identifier>
+            <device_only>DeviceVendor::APPLE_INC, DeviceProduct::APPLE_INTERNAL_KEYBOARD_TRACKPAD_0x0259</device_only>
+
+            <autogen>
+                --KeyOverlaidModifier-- 
+                KeyCode::F19, 
+                KeyCode::CONTROL_L, KeyCode::ESCAPE
             </autogen>
         </item>
     </item>
