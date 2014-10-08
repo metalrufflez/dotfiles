@@ -3,6 +3,10 @@
 source ~/.vundle
 source ~/.vim_functions
 
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
+
 " BASIC CONFIG {{{1
 
 syn on
@@ -112,9 +116,6 @@ let NERDTreeHijackNetrw=0
 " NERDTree auto close
 au bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-" NERDTree auto open
-au vimenter * if !argc() | NERDTree | endif
-
 " Gundo Toggle
 nnoremap <leader>u :GundoToggle<CR>
 
@@ -177,6 +178,9 @@ au Filetype json set sts=2 ts=2 sw=2 foldmethod=syntax
 " vim-task rebinding
 au Filetype task inoremap <silent> <buffer> <C-E> <ESC>:call Toggle_task_status()<CR>i
 au Filetype task noremap <silent> <buffer> <C-E> :call Toggle_task_status()<CR>
+
+" Preview
+nmap <leader>i :Preview<CR>
 
 " IDE style 'run' commands {{{2
 " Bash

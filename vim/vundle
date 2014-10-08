@@ -13,7 +13,7 @@ Bundle 'msanders/snipmate.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-commentary'
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+" Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'sjl/gundo.vim'
@@ -27,9 +27,10 @@ Bundle 'scrooloose/syntastic'
 Bundle 'godlygeek/tabular'
 Bundle 'itspriddle/vim-marked'
 Bundle 'samsonw/vim-task'
-Bundle 'Townk/vim-autoclose'
+" Bundle 'Townk/vim-autoclose'
 Bundle 'duff/vim-scratch'
 Bundle 'tpope/vim-fugitive'
+Bundle 'greyblake/vim-preview'
 
 Bundle 'AutoTag'
 
